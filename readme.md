@@ -105,7 +105,14 @@ You will need to build assets the first time (you will need [NPM](https://www.np
 $ npm install
 ```
 
-And then (Currenty, requires legacy openssl provider to work)
+Generate localizations:
+
+``` 
+$ php artisan vue-i18n:generate
+
+```
+
+And then (Currenty, requires legacy openssl provider to work):
 
 ```
 $ NODE_OPTIONS=--openssl-legacy-provider npm run production
