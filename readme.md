@@ -8,15 +8,15 @@
 ## Local Setup
 
 ### System Setup
-This assumes you're running Ubuntu 22.04 (either natively, or via Windows Subsystem for Linux).
+This assumes you're running Ubuntu 24.04 (either natively, or via Windows Subsystem for Linux).
 Native Windows is not currently supported.
 Users of either Mac OS or other Linux distributions will need to install the appropriate packages for their system.
 
-This version of the randomizer requires version 8.1 of PHP.
+This version of the randomizer requires version 8.3 of PHP.
 
 ```
-sudo apt-get install php8.1 php8.1-bcmath php8.1-xml php8.1-mbstring php8.1-curl php8.1-sqlite3 \
-php8.1-mysql php8.1-cli php8.1-opcache python3 mariadb-server sqlite3 composer -y
+sudo apt-get install php8.3 php8.3-bcmath php8.3-xml php8.3-mbstring php8.3-curl php8.3-sqlite3 \
+php8.3-mysql php8.3-cli php8.3-opcache python3 mariadb-server sqlite3 composer -y
 ```
 
 ### Installing PHP dependencies
@@ -105,10 +105,10 @@ You will need to build assets the first time (you will need [NPM](https://www.np
 $ npm install
 ```
 
-And then
+And then (Currenty, requires legacy openssl provider to work)
 
 ```
-$ npm run production
+$ NODE_OPTIONS=--openssl-legacy-provider npm run production
 ```
 
 Once you have the dependencies installed. Run the following command then navigate to http://localhost:8000/.
@@ -118,10 +118,11 @@ $ php artisan serve
 ```
 
 ## Running tests
-You can run the current test suite with the following command (you may need to install [PHPUnit](https://phpunit.de/))
+You can run the current test suite with the following command (you may need to install [PHPUnit](https://phpunit.de/)).
+phpunit is also installed by composer, so it should be found in vendor/bin/ and does not require a global phpunit version that may differ from the one required.
 
 ```
-$ phpunit
+$ vendor/bin/phpunit
 ```
 
 ## Bug Reports
